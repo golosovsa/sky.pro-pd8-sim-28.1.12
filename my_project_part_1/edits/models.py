@@ -35,3 +35,11 @@ class Tour(models.Model):
     # TODO end_point Точка завершения  Короткий текст (20)
     # TODO children_ok Можно детям или с детьми  Логическое, по умолчанию true
     # TODO group_size  Размер группы Маленькое число
+    guide = models.ForeignKey(Guide, models.CASCADE)
+    attractions = models.ManyToManyRel()
+    language = models.
+    price_rur = models.
+    start_point = models.
+    end_point = models.
+    children_ok = models.
+    group_size = models.
