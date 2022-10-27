@@ -40,7 +40,7 @@ class ModelTestCase(TestCase, DataBaseTestsMixin, ResponseTestsMixin):
         for _ in range(10):
             TourFactory.create(city_id=city_instance.id)
         review_for_create = {
-            "tour_id": 8,
+            "tour": 8,
             "author": "test_author",
             "content": "Мне понравилось! Отличный тур",
             "rate": 5,

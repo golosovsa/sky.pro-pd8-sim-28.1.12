@@ -159,8 +159,9 @@ class ModelTestCase(TestCase, DataBaseTestsMixin, ResponseTestsMixin):
             f"Проверьте, в ответе на GET запрос по адресу {self.url} поле points является списком",
         )
         for point in points:
+            print(point)
             self.assertTrue(
-                point == "test_point",
+                point["name"] == "test_point",
                 f"Проверьте, что в ответе на GET запрос по адресу {self.url} список points содержит верные значения",
             )
 
@@ -189,7 +190,7 @@ class ModelTestCase(TestCase, DataBaseTestsMixin, ResponseTestsMixin):
         )
         for point in points:
             self.assertTrue(
-                point == "test_point",
+                point["name"] == "test_point",
                 f"Проверьте, что в ответе на GET запрос по адресу {self.url} список points содержит верные значения",
             )
 
