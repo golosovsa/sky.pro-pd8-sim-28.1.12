@@ -54,7 +54,7 @@ class ModelTestCase(TestCase, DataBaseTestsMixin, ResponseTestsMixin):
         tour_instance = student_models.Tour.objects.get(id=1)
         ReviewFactory.create(tour_id=tour_instance.id)
         review_for_create = {
-            "tour_id": 4,
+            "tour": 4,
             "author": "wrong",
             "content": "new_content",
             "rate": 100,
