@@ -130,23 +130,23 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 TOTAL_ON_PAGE = 5
 
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'class': 'logging.StreamHandler',
-#             "level": "DEBUG",
-#         },
-#     },
-#     'loggers': {
-#         "": {
-#             'handlers': ['console'],
-#             'level': 'DEBUG',
-#             "propagate": False,
-#         },
-#         "django.db": {
-#             "level": "DEBUG",
-#         }
-#     },
-# }
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            "level": "DEBUG",
+        },
+    },
+    'loggers': {
+        "": {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            "propagate": False,
+        },
+        "django.db": {
+            "level": "DEBUG",
+        }
+    },
+}
