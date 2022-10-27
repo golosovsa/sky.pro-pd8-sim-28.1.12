@@ -20,8 +20,10 @@ class CityListView(ListView):
     def get(self, request, *args, **kwargs):
         super().get(request, *args, **kwargs)
 
+        sorted_query = self.object_list.order_by("status", )
+
         cities = []
-        for city in self.object_list:
+        for city in sorted_query:
             cities.append({
                 "id": city.id,
                 "name": city.name,
