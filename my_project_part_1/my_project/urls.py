@@ -10,4 +10,5 @@ urlpatterns = [
     path("", include("feedback.urls")),
     path("", include("forgotten.urls")),
     path("", include("moderation.urls")),
+    path("discount/", include("discounts.urls")),
 ]

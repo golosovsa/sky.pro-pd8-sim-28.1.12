@@ -13,10 +13,12 @@ class Discount(models.Model):
     DISCOUNT = "discount"
     CATEGORIES = [(PROMO, "Промокод"), (CAMPAIGN, "Акция"), (DISCOUNT, "Скидка")]
 
-    tour = models.ForeignKey(Tour, models.CASCADE)
+    tour = models.ForeignKey(Tour, on_delete=models.CASCADE, null=True)
     category = models.CharField(max_length=8, choices=CATEGORIES, default=PROMO)
-    discounts = models.SmallIntegerField()
-
+    discount = models.SmallIntegerField()
+    code = models.CharField(max_length=50)
+    starts_at = models.DateTimeField(null=True)
+    ends_at = models.DateTimeField(null=True)
 
 
     # TODO дополните модель данными в соответствии со спецификацией
