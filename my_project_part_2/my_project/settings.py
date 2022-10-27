@@ -128,6 +128,8 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+TOTAL_ON_PAGE = 5
+
 # LOGGING = {
 #     'version': 1,
 #     'disable_existing_loggers': False,
