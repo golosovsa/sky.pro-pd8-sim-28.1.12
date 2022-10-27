@@ -13,7 +13,12 @@ class Discount(models.Model):
     DISCOUNT = "discount"
     CATEGORIES = [(PROMO, "Промокод"), (CAMPAIGN, "Акция"), (DISCOUNT, "Скидка")]
 
+    tour = models.ForeignKey(Tour, models.CASCADE)
     category = models.CharField(max_length=8, choices=CATEGORIES, default=PROMO)
+    discounts = models.SmallIntegerField()
+
+
+
     # TODO дополните модель данными в соответствии со спецификацией
 
 
