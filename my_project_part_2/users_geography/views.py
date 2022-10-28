@@ -1,4 +1,4 @@
-from django.db.models import Prefetch, Count, Subquery
+from django.db.models import Prefetch, Count, Subquery, Q
 from django.http import JsonResponse
 from django.views.generic import ListView
 
@@ -14,23 +14,30 @@ class CityRateView(ListView):
         super().get(request, *args, **kwargs)
         users_count = User.objects.count()
 
+        cities = City.objects\
+            .prefetch_related(
+                # "users__city",
+                Prefetch(
+                    "users",
+                    queryset=User.objects.only(
+                        "id", "city_id"
+                    ),
+                ),
+            )\
+            .annotate(users_count=Count("users"))\
+            .all()
 
-        cities = self.object_list
-        cities.prefetch_related(
-            Prefetch(
-                "user_set",
-                queryset=User.objects.only("id", "city_id").values("city_id").annotate(count=Count("id"))
-            )
-        )
         response = []
+
         for city in cities:
-            users = city.user_set
+            count = city.users_count
             response.append({
                 "id": city.id,
                 "name": city.name,
                 "status": city.status,
-                "users": users,
-                "users_percent": users / users_count,
+                "users": count,
+                "users_percent": count / users_count,
             })
+
         return JsonResponse(response, safe=False)
 

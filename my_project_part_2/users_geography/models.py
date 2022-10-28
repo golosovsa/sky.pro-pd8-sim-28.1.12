@@ -13,4 +13,7 @@ class City(models.Model):
 
 class User(models.Model):
     username = models.CharField(max_length=20)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="users")
+
+    class Meta:
+        default_related_name = "users"
