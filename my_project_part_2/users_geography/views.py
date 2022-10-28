@@ -15,15 +15,6 @@ class CityRateView(ListView):
         users_count = User.objects.count()
 
         cities = City.objects\
-            .prefetch_related(
-                # "users__city",
-                Prefetch(
-                    "users",
-                    queryset=User.objects.only(
-                        "id", "city_id"
-                    ),
-                ),
-            )\
             .annotate(users_count=Count("users"))\
             .all()
 
